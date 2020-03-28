@@ -90,10 +90,3 @@ If they are trying to maximize profitability instead of markeshare, then choosin
 Regardless of the model, having Human Underwriters to check all loan applications either 100% or by statistical sampling -- should be put in place as a backup review process. It is also important from a regulation standpoint, that all candidates are given fair treatment under the law and that the ML Model does not contain unlawful bias's by rejecting specific "classes" of applicants. 
 
 
-
-
-
-Given that our Target Output is not continuous data, using a Balanced Accuracy Score Comparison can produce very erroneous conclusions. Never-the-less, looking at the accuracy, the model with the highest accuracy was the Random Oversampling model being correct 66% of the time. The SMOTE and ClusterCentroids models both came in at 65.3%, with the Combination Model producing the lowest accuracy the models varied slightly in their accuracy from a low of of 53.3%. 
-
-A better measure is the Confusion Matrix. 
-
