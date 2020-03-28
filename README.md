@@ -36,32 +36,28 @@ For each of 4 Models, the following process was used:
 The Balanced Accuracy, Confusion Matrix, and Classification Report was then compared acrross the 4 different models looking for differentiation on strengths and weaknesses of each model. 
 
 ## Model 1 - Random Oversampling
-Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
-Balanced_Accuracy = 0.6603423204808787
-Confusion Matrix: 
-array([[  75,   26],
-       [7216, 9888]
-Classificaton_report:
-                 pre       rec       spe        f1       geo       iba       sup
-
-  high_risk       0.01      0.74      0.58      0.02      0.66      0.44       101
-   low_risk       1.00      0.58      0.74      0.73      0.66      0.42     17104
-
-avg / total       0.99      0.58      0.74      0.73      0.66      0.42     17205
+* Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
+* Balanced_Accuracy = 0.6603423204808787
+* Confusion Matrix: 
+* array([[  75,   26],
+*        [7216, 9888]
+* Classificaton_report:
+*                   pre       rec       spe        f1       geo       iba       sup
+*   high_risk       0.01      0.74      0.58      0.02      0.66      0.44       101
+*    low_risk       1.00      0.58      0.74      0.73      0.66      0.42     17104
+* avg / total       0.99      0.58      0.74      0.73      0.66      0.42     17205
 
 ## Model 2 - SMOTE Oversampling 
-Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
-Balanced_Accuracy = 0.6537310478007576
-Confusion Matrix: 
-array([[   63,    38],
-       [ 5410, 11694]
-Classification_report:
-                 pre       rec       spe        f1       geo       iba       sup
-
-  high_risk       0.01      0.62      0.68      0.02      0.65      0.42       101
-   low_risk       1.00      0.68      0.62      0.81      0.65      0.43     17104
-
-avg / total       0.99      0.68      0.62      0.81      0.65      0.43     17205
+* Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
+* Balanced_Accuracy = 0.6537310478007576
+* Confusion Matrix: 
+* array([[   63,    38],
+*        [ 5410, 11694]
+* Classification_report:
+*                   pre       rec       spe        f1       geo       iba       sup
+*  high_risk       0.01      0.62      0.68      0.02      0.65      0.42       101
+*   low_risk       1.00      0.68      0.62      0.81      0.65      0.43     17104
+* avg / total       0.99      0.68      0.62      0.81      0.65      0.43     17205
 
 ## Model 3 - ClusterCentroids Undersampling
 Resampling Produced -  246 for both "low_risk" and "high_risk" target categories. 
