@@ -39,30 +39,30 @@ The Balanced Accuracy, Confusion Matrix, and Classification Report was then comp
 * Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
 * Balanced_Accuracy = 0.6603423204808787
 * Confusion Matrix: 
-|75  |26  |
-|7216|9888|      
+* |75  |26  |
+* |7216|9888|      
 
 ## Model 2 - SMOTE Oversampling 
 * Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
 * Balanced_Accuracy = 0.6537310478007576
 * Confusion Matrix: 
-|63 |38|,
-|5410 |11694|
+* |63 |38|,
+* |5410 |11694|
 
 
 ## Model 3 - ClusterCentroids Undersampling
 Resampling Produced -  246 for both "low_risk" and "high_risk" target categories. 
 Balanced_Accuracy = 0.6537310478007576
 Confusion Matrix: 
-|67 |34|
-|10217 |6887 |
+* |67 |34|
+* |10217 |6887 |
 
 ## Model 4 - Combination of Over and Under Sampling
 Resampling Produced -  46660 "low_risk" rows and 51359 "high_risk" rows. 
 Balanced_Accuracy = 0.5330103432466726
 Confusion Matrix: 
-|67 |34|
-| 7043 |10061|
+* |67 |34|
+* | 7043 |10061|
 
 ## General Comments On Using ML To Screen Loans
 From the LendingCLub standpoint, using an ML Model to screen out high-risk loan applications - who ultimately might default on the loan - is important to keep profits high. One defaulted loan can wipe out profits from tens or even hundreds of good loans depending upon the defaulted loan amount so its important that Precision be as high as posssible -- resulting in less loans to high-risk applicants. 
