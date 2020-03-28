@@ -39,53 +39,61 @@ The Balanced Accuracy, Confusion Matrix, and Classification Report was then comp
 * Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
 * Balanced_Accuracy = 0.6603423204808787
 * Confusion Matrix: 
-* |75  |26  |
-* |7216|9888|      
-* Classificaton_report:
-*                   pre       rec       spe        f1       geo       iba       sup
-*   high_risk       0.01      0.74      0.58      0.02      0.66      0.44       101
-*    low_risk       1.00      0.58      0.74      0.73      0.66      0.42     17104
-* avg / total       0.99      0.58      0.74      0.73      0.66      0.42     17205
+|75  |26  |
+|7216|9888|      
 
 ## Model 2 - SMOTE Oversampling 
 * Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
 * Balanced_Accuracy = 0.6537310478007576
 * Confusion Matrix: 
-* array([[   63,    38],
-*        [ 5410, 11694]
-* Classification_report:
-*                   pre       rec       spe        f1       geo       iba       sup
-*  high_risk       0.01      0.62      0.68      0.02      0.65      0.42       101
-*   low_risk       1.00      0.68      0.62      0.81      0.65      0.43     17104
-* avg / total       0.99      0.68      0.62      0.81      0.65      0.43     17205
+|63 |38|,
+|5410 |11694|
+
 
 ## Model 3 - ClusterCentroids Undersampling
 Resampling Produced -  246 for both "low_risk" and "high_risk" target categories. 
 Balanced_Accuracy = 0.6537310478007576
 Confusion Matrix: 
-array([[   67,    34],
-       [10217,  6887]]
-Classification_report
-                 pre       rec       spe        f1       geo       iba       sup
-
-  high_risk       0.01      0.66      0.40      0.01      0.52      0.27       101
-   low_risk       1.00      0.40      0.66      0.57      0.52      0.26     17104
-
-avg / total       0.99      0.40      0.66      0.57      0.52      0.26     17205
+|67 |34|
+|10217 |6887 |
 
 ## Model 4 - Combination of Over and Under Sampling
 Resampling Produced -  46660 "low_risk" rows and 51359 "high_risk" rows. 
 Balanced_Accuracy = 0.5330103432466726
 Confusion Matrix: 
-array([[   67,    34],
-       [ 7043, 10061]
-Classification_report
-                 pre       rec       spe        f1       geo       iba       sup
+|67 |34|
+| 7043 |10061|
 
-  high_risk       0.01      0.66      0.59      0.02      0.62      0.39       101
-   low_risk       1.00      0.59      0.66      0.74      0.62      0.39     17104
+## General Comments On Using ML To Screen Loans
+From the LendingCLub standpoint, using an ML Model to screen out high-risk loan applications - who ultimately might default on the loan - is important to keep profits high. One defaulted loan can wipe out profits from tens or even hundreds of good loans depending upon the defaulted loan amount so its important that Precision be as high as posssible -- resulting in less loans to high-risk applicants. 
 
-avg / total       0.99      0.59      0.66      0.74      0.62      0.39     17205
+On the other hand, a model that is "too sensitive" can screen out good borrowers, reducing the amount of processed business and overall customers. In general, ML models tradeoff Precision in "catching" the negative case while rejecting the "good case" so its important to understand the business tradeoffs that come with choosing the model -- or have backup business review processes to do a second screening of ML results. ML can therefore be used to increase the efficiency of Human UnderWriters who will do the secondary review. 
+
+## Analysis on Comparing Models
+Given that our Target Output is not continuous data, using a Balanced Accuracy Score Comparison can produce very erroneous conclusions. Never-the-less, looking at the accuracy, the model with the highest accuracy was the Random Oversampling model being correct 66% of the time. The SMOTE and ClusterCentroids models both came in at 65.3%, with the Combination Model producing the lowest accuracy the models varied slightly in their accuracy from a low of of 53.3%. 
+
+* Note: A better measure is the Confusion Matrix and Classification Report. Please refer to the printouts in the Notebook showing specific output for each model. 
+
+Overall the Random Sampling Model appears to be the best model, letting the least number of high_risk candidates be classified as False Negatives (26 loan apps) and also had a lower (not lowest) number of low_risk applicants misclassified as high risk (7216). 
+
+The SMOTE Oversampling Model was much better at not rejecting low-risk applicatants (only 5410) but did let more high-risk borrowers thorugh (38). 
+
+The SMOTEENN Combination Model had the next best - letting slightly more high-risk candidates through (34) but like Random Sampling, rejected 7043 good borrowers.  
+
+The worst performing model appears to be the ClusterCentroids with high approval of bad borrowers (34) and also high rejection of good borrorwers (10217). 
+
+## Recommendations
+If the objective of the LendingClub is to maximize marketshare then choosing the SMOTE Oversampling will provide the highest number of approvals for low-risk loan applicants with a slight hit on profitability per loan by accepting a higher rate of approvals for high-risk applicants. 
+
+If they are trying to maximize profitability instead of markeshare, then choosing the Random Sampling Model might be best to minimize the number of approvals on high-risk candidates at some sacrifice of rejecting good candidates. 
+
+Regardless of the model, having Human Underwriters to check all loan applications either 100% or by statistical sampling -- should be put in place as a backup review process. It is also important from a regulation standpoint, that all candidates are given fair treatment under the law and that the ML Model does not contain unlawful bias's by rejecting specific "classes" of applicants. 
 
 
+
+
+
+Given that our Target Output is not continuous data, using a Balanced Accuracy Score Comparison can produce very erroneous conclusions. Never-the-less, looking at the accuracy, the model with the highest accuracy was the Random Oversampling model being correct 66% of the time. The SMOTE and ClusterCentroids models both came in at 65.3%, with the Combination Model producing the lowest accuracy the models varied slightly in their accuracy from a low of of 53.3%. 
+
+A better measure is the Confusion Matrix. 
 
