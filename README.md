@@ -39,8 +39,8 @@ The Balanced Accuracy, Confusion Matrix, and Classification Report was then comp
 * Resampling Produced - 51366 for both "low_risk" and "high_risk" target categories. 
 * Balanced_Accuracy = 0.6603423204808787
 * Confusion Matrix: 
-* array([[  75,   26],
-*        [7216, 9888]
+* |75  |26  |
+* |7216|9888|      
 * Classificaton_report:
 *                   pre       rec       spe        f1       geo       iba       sup
 *   high_risk       0.01      0.74      0.58      0.02      0.66      0.44       101
