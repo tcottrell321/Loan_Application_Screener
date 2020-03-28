@@ -51,16 +51,16 @@ The Balanced Accuracy, Confusion Matrix, and Classification Report was then comp
 
 
 ## Model 3 - ClusterCentroids Undersampling
-Resampling Produced -  246 for both "low_risk" and "high_risk" target categories. 
-Balanced_Accuracy = 0.6537310478007576
-Confusion Matrix: 
+* Resampling Produced -  246 for both "low_risk" and "high_risk" target categories. 
+* Balanced_Accuracy = 0.6537310478007576
+* Confusion Matrix: 
 * |67 |34|
 * |10217 |6887 |
 
 ## Model 4 - Combination of Over and Under Sampling
-Resampling Produced -  46660 "low_risk" rows and 51359 "high_risk" rows. 
-Balanced_Accuracy = 0.5330103432466726
-Confusion Matrix: 
+* Resampling Produced -  46660 "low_risk" rows and 51359 "high_risk" rows. 
+* Balanced_Accuracy = 0.5330103432466726
+* Confusion Matrix: 
 * |67 |34|
 * | 7043 |10061|
 
